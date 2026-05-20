@@ -3,1472 +3,340 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Criando em Paz — Construa seu negócio sem se destruir</title>
+  <title>Brief.ai — Infraestrutura de conteúdo para agências políticas</title>
+  <meta name="description" content="Seu candidato nunca mais começa do zero. Brief.ai instala o contexto de campanha uma vez e produz conteúdo dentro da narrativa — toda semana." />
+  <meta property="og:title" content="Brief.ai" />
+  <meta property="og:description" content="Infraestrutura de conteúdo para agências políticas." />
+  <meta property="og:locale" content="pt_BR" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- primary: stylesheet link -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700;1,900&display=block" rel="stylesheet" />
 
-  <style>
-    /* fallback @import in case <link> is blocked by the viewer */
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700;1,900&display=block');
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #ffffff;
-      --bg2: #f5f5f5;
-      --bg3: #eeeeee;
-      --white: #0a0a0a;
-      --red: #c8102e;
-      --red-soft: rgba(200,16,46,0.08);
-      --muted: #999999;
-      --muted2: #666666;
-      --border: #e0e0e0;
-      --border2: #cccccc;
-      --font-display: 'Roboto', sans-serif;
-      --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      --radius: 20px;
-      --radius-sm: 12px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      background: var(--bg);
-      color: var(--white);
-      font-size: 18px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar { width: 3px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
-
-    /* ── STICKY CTA BAR ── */
-    #sticky-bar {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%) translateY(80px);
-      z-index: 300;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--border2);
-      border-radius: 100px;
-      padding: 10px 10px 10px 24px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      white-space: nowrap;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
-    }
-
-    #sticky-bar.visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .sticky-price {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1rem;
-      letter-spacing: 0.02em;
-      color: var(--white);
-    }
-
-    .sticky-label {
-      font-size: 0.72rem;
-      color: var(--muted2);
-      letter-spacing: 0.08em;
-    }
-
-    .sticky-btn {
-      background: var(--red);
-      color: #ffffff;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 100px;
-      transition: background 0.2s;
-      white-space: nowrap;
-    }
-
-    .sticky-btn:hover { background: #a50d25; }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 200;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 32px;
-      height: 60px;
-      background: rgba(255,255,255,0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.3s;
-    }
-
-    nav.scrolled { border-color: var(--border); }
-
-    .nav-logo {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--white);
-    }
-
-    .nav-logo em { color: var(--red); font-style: normal; }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .nav-link {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--muted2);
-      transition: color 0.2s;
-    }
-
-    .nav-link:hover { color: var(--white); }
-
-    .nav-cta {
-      background: transparent;
-      color: var(--white);
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 9px 20px;
-      border: 1px solid var(--border2);
-      border-radius: 100px;
-      transition: border-color 0.2s, background 0.2s;
-    }
-
-    .nav-cta:hover { background: var(--red); border-color: var(--red); }
-
-    /* ── SECTION LABEL ── */
-    .scene-label {
-      font-family: var(--font-display);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 56px;
-    }
-
-    .scene-label::before {
-      content: '';
-      display: block;
-      width: 28px;
-      height: 1px;
-      background: var(--muted);
-      flex-shrink: 0;
-    }
-
-    /* ── HERO ── */
-    #hero {
-      min-height: 100svh;
-      padding: 80px 48px 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hero-eyebrow {
-      font-family: var(--font-body);
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted2);
-      margin-bottom: 32px;
-    }
-
-    .hero-headline {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(1rem, 7vw, 10rem);
-      line-height: 1;
-      text-transform: uppercase;
-      letter-spacing: -0.01em;
-      max-width: 1100px;
-      margin-bottom: 56px;
-    }
-
-    .hero-headline em {
-      font-style: italic;
-      color: var(--red);
-    }
-
-    .hero-foot {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 40px;
-      flex-wrap: wrap;
-      padding-top: 40px;
-      border-top: 1px solid var(--border);
-    }
-
-    .hero-sub {
-      font-size: 1rem;
-      color: var(--muted2);
-      line-height: 1.7;
-      max-width: 420px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 12px;
-    }
-
-    .btn-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--red);
-      color: #ffffff;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 16px 32px;
-      border-radius: 100px;
-      transition: background 0.2s, transform 0.2s;
-    }
-
-    .btn-pill:hover { background: #a50d25; transform: translateY(-1px); }
-
-    .btn-pill-white {
-      background: #ffffff;
-      color: var(--red) !important;
-    }
-    .btn-pill-white:hover { background: #f0f0f0; }
-
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: transparent;
-      color: var(--muted2);
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 100px;
-      border: 1px solid var(--border2);
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .btn-ghost:hover { color: #0a0a0a; border-color: #0a0a0a; }
-
-    .hero-trust {
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-    }
-
-    /* ── TICKER ── */
-    .ticker-wrap {
-      overflow: hidden;
-      border-bottom: 1px solid var(--border);
-      background: var(--red);
-      padding: 13px 0;
-    }
-
-    .ticker-track {
-      display: flex;
-      width: max-content;
-      animation: ticker 30s linear infinite;
-    }
-
-    .ticker-item {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
-      white-space: nowrap;
-      padding: 0 36px;
-    }
-
-    .ticker-sep { color: rgba(255,255,255,0.4); padding: 0 8px; }
-
-    @keyframes ticker {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* ── COUNTER ── */
-    #counter {
-      padding: 80px 48px;
-      border-bottom: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .counter-item {
-      padding: 0 40px;
-      border-right: 1px solid var(--border);
-    }
-
-    .counter-item:first-child { padding-left: 0; }
-    .counter-item:last-child { border-right: none; }
-
-    .c-num {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(3.5rem, 7vw, 6rem);
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .c-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted2);
-    }
-
-    /* ── DOR ── */
-    #dor {
-      padding: 100px 48px;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
-    }
-
-    .dor-headline {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(3.2rem, 7vw, 6.5rem);
-      line-height: 0.93;
-      text-transform: uppercase;
-      max-width: 900px;
-      margin-bottom: 80px;
-    }
-
-    .dor-headline em { color: var(--red); font-style: italic; }
-
-    .dor-items {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    .dor-item {
-      padding: 40px 36px;
-      background: var(--bg2);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .dor-num {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 2.8rem;
-      color: var(--red);
-      line-height: 1;
-      opacity: 0.6;
-    }
-
-    .dor-text {
-      font-size: 0.97rem;
-      color: var(--muted2);
-      line-height: 1.6;
-    }
-
-    .dor-callout {
-      margin-top: 64px;
-      padding: 48px;
-      background: var(--bg3);
-      border: 1px solid var(--border2);
-      border-radius: var(--radius);
-      border-left: 3px solid var(--red);
-    }
-
-    .dor-callout-title {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      line-height: 1.1;
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .dor-callout-body {
-      font-size: 0.95rem;
-      color: var(--muted2);
-      line-height: 1.75;
-      max-width: 680px;
-    }
-
-    /* ── ANTES / DEPOIS ── */
-    #avd {
-      padding: 100px 48px;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
-    }
-
-    .avd-head {
-      margin-bottom: 56px;
-    }
-
-    .avd-headline {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      line-height: 0.93;
-      text-transform: uppercase;
-    }
-
-    .avd-headline em { color: var(--red); font-style: italic; }
-
-    .avd-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .avd-col {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    .avd-col-header {
-      padding: 16px 28px;
-      border-bottom: 1px solid var(--border);
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-
-    .avd-col:first-child .avd-col-header { color: var(--muted); }
-    .avd-col:last-child .avd-col-header { color: var(--red); }
-
-    .avd-cell {
-      padding: 18px 28px;
-      font-size: 0.93rem;
-      color: var(--muted2);
-      line-height: 1.5;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
-    .avd-col:last-child .avd-cell { color: #ccc; }
-    .avd-cell:last-child { border-bottom: none; }
-
-    .avd-icon { flex-shrink: 0; font-size: 0.9rem; margin-top: 2px; }
-
-    /* ── MÉTODO ── */
-    #metodo {
-      padding: 100px 48px;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
-    }
-
-    .metodo-intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: end;
-      margin-bottom: 64px;
-    }
-
-    .metodo-headline {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      line-height: 0.93;
-      text-transform: uppercase;
-    }
-
-    .metodo-headline em { color: var(--red); font-style: italic; }
-
-    .metodo-body {
-      font-size: 1rem;
-      color: var(--muted2);
-      line-height: 1.75;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .step-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 40px 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      transition: border-color 0.25s;
-    }
-
-    .step-card:hover { border-color: var(--border2); }
-
-    .step-tag {
-      font-family: var(--font-body);
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 32px;
-    }
-
-    .step-num {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 5rem;
-      color: var(--border2);
-      line-height: 1;
-      margin-bottom: 24px;
-      letter-spacing: -0.02em;
-    }
-
-    .step-title {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      margin-bottom: 16px;
-      line-height: 1.1;
-    }
-
-    .step-desc {
-      font-size: 0.9rem;
-      color: var(--muted2);
-      line-height: 1.7;
-    }
-
-    /* ── BRAND CONTEXT ── */
-    #brand {
-      padding: 100px 48px;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg2);
-    }
-
-    .brand-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .brand-headline {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(2.8rem, 5.5vw, 5rem);
-      line-height: 0.93;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-
-    .brand-headline em { color: var(--red); font-style: italic; }
-
-    .brand-body {
-      font-size: 1rem;
-      color: var(--muted2);
-      line-height: 1.75;
-      margin-bottom: 28px;
-    }
-
-    .brand-card {
-      background: var(--bg3);
-      border: 1px solid var(--border2);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    .brand-card-top {
-      padding: 32px 36px;
-      border-bottom: 1px solid var(--border2);
-    }
-
-    .brand-tag {
-      font-family: var(--font-body);
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 16px;
-    }
-
-    .brand-name {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 1.8rem;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .brand-sub {
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .brand-features {
-      padding: 28px 36px;
-      border-bottom: 1px solid var(--border2);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .brand-feature {
-      display: flex;
-      gap: 12px;
-      font-size: 0.9rem;
-      color: var(--muted2);
-      align-items: flex-start;
-      line-height: 1.5;
-    }
-
-    .brand-feature::before {
-      content: '↗';
-      color: var(--red);
-      flex-shrink: 0;
-      font-family: var(--font-display);
-      font-weight: 700;
-    }
-
-    .brand-price-block {
-      padding: 28px 36px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand-price {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 2.4rem;
-      color: var(--white);
-      line-height: 1;
-    }
-
-    .brand-price-note {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    /* ── OFERTA ── */
-    #oferta {
-      padding: 100px 48px;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
-    }
-
-    .oferta-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 40px;
-      margin-bottom: 48px;
-      flex-wrap: wrap;
-    }
-
-    .oferta-headline {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(4rem, 9vw, 8.5rem);
-      line-height: 0.88;
-      letter-spacing: -0.01em;
-      text-transform: uppercase;
-    }
-
-    .oferta-headline em { color: var(--red); font-style: italic; }
-
-    .oferta-sub {
-      font-size: 0.95rem;
-      color: var(--muted2);
-      line-height: 1.7;
-      max-width: 360px;
-    }
-
-    .oferta-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .oferta-left {
-      padding: 52px 48px;
-      border-right: 1px solid var(--border);
-    }
-
-    .oferta-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--red);
-      margin-bottom: 24px;
-    }
-
-    .oferta-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--red);
-      flex-shrink: 0;
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    .oferta-nome {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 2rem;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-      line-height: 1;
-    }
-
-    .oferta-subtitle {
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-bottom: 36px;
-    }
-
-    .oferta-includes {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .oferta-includes li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 0.9rem;
-      color: var(--muted2);
-      line-height: 1.5;
-    }
-
-    .oferta-includes li::before {
-      content: '↗';
-      color: var(--red);
-      flex-shrink: 0;
-      font-family: var(--font-display);
-      font-weight: 700;
-    }
-
-    .oferta-right {
-      padding: 52px 48px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .oferta-price-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .oferta-price {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(3.5rem, 6vw, 5.5rem);
-      line-height: 1;
-      color: var(--white);
-      margin-bottom: 4px;
-    }
-
-    .oferta-price-note {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 40px;
-    }
-
-    .btn-oferta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background: var(--red);
-      color: #ffffff;
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 20px 32px;
-      border-radius: 100px;
-      transition: background 0.2s, transform 0.2s;
-      margin-bottom: 12px;
-    }
-
-    .btn-oferta:hover { background: #a50d25; transform: translateY(-1px); }
-
-    .oferta-guarantee {
-      font-size: 0.72rem;
-      color: var(--muted);
-      text-align: center;
-      letter-spacing: 0.06em;
-    }
-
-    .oferta-trust {
-      display: flex;
-      gap: 20px;
-      margin-top: 28px;
-      padding-top: 28px;
-      border-top: 1px solid var(--border);
-    }
-
-    .oferta-trust-item {
-      font-size: 0.7rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    /* ── FAQ ── */
-    #faq {
-      padding: 100px 48px;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg);
-    }
-
-    .faq-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .faq-headline {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(2.8rem, 5.5vw, 5rem);
-      line-height: 0.93;
-      text-transform: uppercase;
-      position: sticky;
-      top: 80px;
-    }
-
-    .faq-headline em { color: var(--red); font-style: italic; }
-
-    .faq-list { display: flex; flex-direction: column; }
-
-    .faq-item { border-top: 1px solid var(--border); }
-    .faq-item:last-child { border-bottom: 1px solid var(--border); }
-
-    .faq-q {
-      width: 100%;
-      background: none;
-      border: none;
-      text-align: left;
-      cursor: pointer;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 1.05rem;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      padding: 26px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--white);
-      gap: 20px;
-    }
-
-    .faq-icon {
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: var(--red);
-      transition: transform 0.25s;
-      flex-shrink: 0;
-    }
-
-    .faq-a {
-      font-size: 0.93rem;
-      color: var(--muted2);
-      line-height: 1.75;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s;
-      padding-bottom: 0;
-    }
-
-    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 28px; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); }
-
-    /* ── FINAL CTA ── */
-    #final {
-      min-height: 80svh;
-      padding: 100px 48px;
-      background: var(--red);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .final-headline {
-      font-family: var(--font-display);
-      font-weight: 900;
-      font-size: clamp(4.5rem, 12vw, 11rem);
-      line-height: 0.88;
-      text-transform: uppercase;
-      max-width: 1200px;
-      margin-bottom: 56px;
-      color: #ffffff;
-    }
-
-    .final-headline em { color: rgba(255,255,255,0.4); font-style: italic; }
-
-    .final-actions {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .final-note {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.6);
-      letter-spacing: 0.06em;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      padding: 32px 48px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-logo {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 0.95rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .footer-logo em { color: var(--red); font-style: normal; }
-
-    .footer-copy {
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .footer-copy a { color: var(--muted2); text-decoration: none; }
-    .footer-copy a:hover { color: var(--red); }
-
-    /* ── FADE-IN ANIMATIONS ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      #sticky-bar {
-        left: 16px;
-        right: 16px;
-        bottom: 16px;
-        transform: translateY(80px);
-        border-radius: 16px;
-        padding: 14px 14px 14px 20px;
-        width: auto;
-      }
-
-      #sticky-bar.visible { transform: translateY(0); }
-
-      .sticky-btn { flex: 1; text-align: center; justify-content: center; }
-
-      nav { padding: 0 20px; }
-      .nav-links { display: none; }
-
-      #hero { padding: 80px 24px 100px; }
-      .hero-foot { flex-direction: column; align-items: flex-start; }
-      .hero-actions { align-items: flex-start; }
-
-      #counter { padding: 56px 24px; grid-template-columns: 1fr; }
-      .counter-item { padding: 24px 0; border-right: none; border-bottom: 1px solid var(--border); }
-      .counter-item:last-child { border-bottom: none; }
-
-      #dor, #avd, #metodo, #brand, #oferta, #faq, #final { padding: 72px 24px; }
-
-      .dor-items { grid-template-columns: 1fr; }
-      .dor-callout { padding: 32px 24px; }
-
-      .avd-grid { grid-template-columns: 1fr; }
-
-      .metodo-intro { grid-template-columns: 1fr; gap: 32px; }
-      .steps { grid-template-columns: 1fr; }
-
-      .brand-inner { grid-template-columns: 1fr; gap: 48px; }
-
-      .oferta-card { grid-template-columns: 1fr; }
-      .oferta-left { border-right: none; border-bottom: 1px solid var(--border); }
-      .oferta-top { flex-direction: column; align-items: flex-start; }
-
-      .faq-inner { grid-template-columns: 1fr; gap: 48px; }
-      .faq-headline { position: static; }
-
-      footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
-    }
-  </style>
+  <link rel="stylesheet" href="tokens.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
-  <!-- STICKY BAR -->
-  <div id="sticky-bar">
-    <div>
-      <div class="sticky-price">R$147</div>
-      <div class="sticky-label">Sessão individual · 2h</div>
-    </div>
-    <a class="sticky-btn" href="https://wa.me/5571996551316?text=Oi%2C+quero+marcar+minha+sess%C3%A3o+do+Criando+em+Paz" target="_blank" rel="noopener">
-      Contratar →
-    </a>
-  </div>
+  <!-- ══════════════════════════════
+       HERO
+  ══════════════════════════════ -->
+  <section class="hero">
+    <div class="hero__inner">
 
-  <!-- NAV -->
-  <nav id="nav">
-    <a class="nav-logo" href="#">Criando<em>.</em>em<em>.</em>paz</a>
-    <div class="nav-links">
-      <a class="nav-link" href="#metodo">Método</a>
-      <a class="nav-link" href="#faq">FAQ</a>
-    </div>
-    <a class="nav-cta" href="#oferta">Contratar →</a>
-  </nav>
+      <header class="hero__topbar reveal">
+        <a class="hero__logo" href="#">Brief<span class="hero__logo-dot">.</span>ai</a>
+        <span class="hero__badge">Agências políticas</span>
+      </header>
 
-  <!-- HERO -->
-  <section id="hero">
-    <p class="hero-eyebrow">Consultoria para criativos · by Nebu Company</p>
-    <h1 class="hero-headline">
-      Construa seu<br>negócio sem<br><em>se destruir</em><br>no processo.
-    </h1>
-    <div class="hero-foot">
-      <p class="hero-sub">
-        Para artistas, designers, videomakers e freelancers que estão cansados de trocar saúde por resultado — e querem crescer de um jeito que dure.
+      <div class="hero__body">
+
+        <div class="hero__rule"></div>
+
+        <p class="hero__eyebrow reveal">Infraestrutura de conteúdo para campanha</p>
+
+        <h1 class="type-hero hero__headline reveal">
+          Sua equipe<br>produz dez vezes<br>mais. O candidato<br>soa <em class="text-accent">igual.</em>
+        </h1>
+
+        <div class="hero__foot reveal">
+          <p class="type-body hero__sub">
+            Brief.ai aprende o contexto do candidato uma vez. A partir daí, toda semana a equipe gera conteúdo dentro da narrativa — sem começar do zero, sem perder voz.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#cta">Ver como funciona →</a>
+            <span class="hero__price-note">Licença vitalícia</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       DOR
+  ══════════════════════════════ -->
+  <section class="section">
+    <div class="page-wrapper">
+
+      <h2 class="type-display text-primary reveal" style="margin-bottom: 2.25rem;">
+        Pré-campanha<br>estoura<br>equipe.
+      </h2>
+
+      <p class="type-body reveal" style="max-width: 520px;">
+        Quando a demanda triplica, o gargalo não é talento — é processo. Redator sem briefing. Designer esperando texto. Cada candidato com uma voz diferente que ninguém documentou.
       </p>
-      <div class="hero-actions">
-        <a class="btn-pill" href="#oferta">Contratar agora →</a>
-        <a class="btn-ghost" href="#metodo">Como funciona</a>
-        <p class="hero-trust">Sessão de 2h · R$147 · Garantia inclusa</p>
+
+      <div class="grid-ruled grid-ruled--2col reveal" style="margin-top: 2.75rem;">
+
+        <div class="pain-cell reveal">
+          <div class="pain-cell__number">01</div>
+          <div class="pain-cell__text">
+            <strong class="text-primary">Briefing que some.</strong> O contexto do candidato existe na cabeça do estrategista. Quando muda quem redige, muda a voz.
+          </div>
+        </div>
+
+        <div class="pain-cell reveal reveal--delay-1">
+          <div class="pain-cell__number">02</div>
+          <div class="pain-cell__text">
+            <strong class="text-primary">Volume impossível no pico.</strong> Um candidato exige 4 carrosseis por semana. Com três candidatos, a equipe para.
+          </div>
+        </div>
+
+        <div class="pain-cell reveal reveal--delay-2">
+          <div class="pain-cell__number">03</div>
+          <div class="pain-cell__text">
+            <strong class="text-primary">IA sem contexto não resolve.</strong> ChatGPT gera conteúdo genérico que soa como todo político. Não tem narrativa, não tem voz, não tem utilidade real.
+          </div>
+        </div>
+
+        <div class="pain-cell reveal reveal--delay-3">
+          <div class="pain-cell__number">04</div>
+          <div class="pain-cell__text">
+            <strong class="text-primary">Entrega lenta, cliente insatisfeito.</strong> O candidato quer consistência. A agência entrega quando consegue. A conta não fecha.
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- TICKER -->
-  <div class="ticker-wrap" aria-hidden="true">
-    <div class="ticker-track">
-      <span class="ticker-item">Criando em Paz</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Sessão de 2h</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Sem burnout</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Individual</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Negócio que dura</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Método Nebu</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Criando em Paz</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Sessão de 2h</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Sem burnout</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Individual</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Negócio que dura</span><span class="ticker-sep">✦</span>
-      <span class="ticker-item">Método Nebu</span><span class="ticker-sep">✦</span>
-    </div>
-  </div>
 
-  <!-- COUNTER -->
-  <div id="counter">
-    <div class="counter-item reveal">
-      <p class="c-num">+200</p>
-      <p class="c-label">Criativos atendidos</p>
-    </div>
-    <div class="counter-item reveal reveal-delay-1">
-      <p class="c-num">2h</p>
-      <p class="c-label">Sessão individual</p>
-    </div>
-    <div class="counter-item reveal reveal-delay-2">
-      <p class="c-num">100%</p>
-      <p class="c-label">Individual. Sem grupo.</p>
-    </div>
-  </div>
+  <!-- ══════════════════════════════
+       O QUE É
+  ══════════════════════════════ -->
+  <section class="section section--surface-inverse">
+    <div class="page-wrapper">
 
-  <!-- DOR -->
-  <section id="dor">
-    <p class="scene-label reveal">O problema</p>
-    <h2 class="dor-headline reveal">
-      Você sabe fazer<br>o seu trabalho.<br>Só não deveria<br>custar <em>tanto.</em>
-    </h2>
-    <div class="dor-items reveal">
-      <div class="dor-item">
-        <p class="dor-num">01</p>
-        <p class="dor-text">Você trabalha mais que seus clientes CLT — e ainda se sente atrasado(a) o tempo todo.</p>
-      </div>
-      <div class="dor-item">
-        <p class="dor-num">02</p>
-        <p class="dor-text">Cada novo cliente deveria ser motivo de comemoração. Virou fonte de ansiedade sobre entrega e precificação.</p>
-      </div>
-      <div class="dor-item">
-        <p class="dor-num">03</p>
-        <p class="dor-text">Você leu livros, fez cursos, tentou sistemas. O problema não é conteúdo — é aplicar no seu contexto específico.</p>
-      </div>
-      <div class="dor-item">
-        <p class="dor-num">04</p>
-        <p class="dor-text">Seu negócio cresceu, mas você não tem clareza se está indo na direção certa. Ou só rodando mais rápido no mesmo lugar.</p>
-      </div>
-    </div>
-    <div class="dor-callout reveal">
-      <p class="dor-callout-title">O problema não é você.<br>É a estrutura.</p>
-      <p class="dor-callout-body">Mentorias em grupo têm 200 pessoas e receitas prontas que não encaixam no que você faz. Cursos gravados você começa e para. Frameworks genéricos que não foram feitos pra sua realidade. Você aplica metade — e trava na outra metade.</p>
-    </div>
-  </section>
+      <h2 class="type-display text-inverse reveal" style="margin-bottom: 2.25rem;">
+        Contexto<br>instalado<br>uma vez.<br>Conteúdo<br>toda <em class="text-accent">semana.</em>
+      </h2>
 
-  <!-- ANTES VS DEPOIS -->
-  <section id="avd">
-    <div class="avd-head reveal">
-      <p class="scene-label">Transformação</p>
-      <h2 class="avd-headline">Antes <em>vs</em><br>depois.</h2>
-    </div>
-    <div class="avd-grid reveal">
-      <div class="avd-col">
-        <div class="avd-col-header">Sem o Criando em Paz</div>
-        <div class="avd-cell"><span class="avd-icon" style="color:var(--muted);">✗</span> Semana começa sem saber por onde começar</div>
-        <div class="avd-cell"><span class="avd-icon" style="color:var(--muted);">✗</span> Precificação que você reabre toda semana</div>
-        <div class="avd-cell"><span class="avd-icon" style="color:var(--muted);">✗</span> Processo que depende de você estar a 100%</div>
-        <div class="avd-cell"><span class="avd-icon" style="color:var(--muted);">✗</span> Aceita qualquer projeto que aparece</div>
-        <div class="avd-cell"><span class="avd-icon" style="color:var(--muted);">✗</span> Trabalha muito. Sensação de avançar pouco.</div>
-        <div class="avd-cell"><span class="avd-icon" style="color:var(--muted);">✗</span> Decisões na pressão, não no critério</div>
-      </div>
-      <div class="avd-col">
-        <div class="avd-col-header">Com o Criando em Paz</div>
-        <div class="avd-cell"><span class="avd-icon" style="color:var(--red);">✓</span> Sistema claro antes de abrir o computador</div>
-        <div class="avd-cell"><span class="avd-icon" style="color:var(--red);">✓</span> Preço definido. Não precisa ser repensado.</div>
-        <div class="avd-cell"><span class="avd-icon" style="color:var(--red);">✓</span> Atendimento que roda mesmo fora do seu pico</div>
-        <div class="avd-cell"><span class="avd-icon" style="color:var(--red);">✓</span> Critério claro pra dizer sim — e pra dizer não</div>
-        <div class="avd-cell"><span class="avd-icon" style="color:var(--red);">✓</span> Menos horas. Mais resultado. Sem culpa.</div>
-        <div class="avd-cell"><span class="avd-icon" style="color:var(--red);">✓</span> Prioridade definida. Execução sem ruído.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MÉTODO -->
-  <section id="metodo">
-    <div class="metodo-intro">
-      <div class="reveal">
-        <p class="scene-label">O método</p>
-        <h2 class="metodo-headline">Como o<br>método<br><em>funciona.</em></h2>
-      </div>
-      <p class="metodo-body reveal">
-        Não é grupo. Não é gravação. Não é framework genérico. Você traz o negócio real — a gente entende o problema e cria o sistema que faz sentido pro seu ritmo, seus recursos e o que você quer construir.
+      <p class="type-body text-inverse-secondary reveal" style="max-width: 520px;">
+        Brief.ai não é um gerador de texto. É uma infraestrutura — o contexto do candidato fica documentado e vivo dentro do sistema. Cada peça produzida carrega quem ele é, o que defende, como fala.
       </p>
-    </div>
-    <div class="steps">
-      <div class="step-card reveal">
-        <p class="step-tag">Antes da sessão</p>
-        <p class="step-num">01</p>
-        <p class="step-title">Pré-mapeamento</p>
-        <p class="step-desc">Você preenche um mapa completo do negócio. Em 48h a gente analisa onde a energia está vazando — diagnóstico honesto do seu contexto antes mesmo de conversar. Você vai ver coisas que nunca tinha parado pra nomear.</p>
-      </div>
-      <div class="step-card reveal reveal-delay-1">
-        <p class="step-tag">A sessão</p>
-        <p class="step-num">02</p>
-        <p class="step-title">2h Individuais</p>
-        <p class="step-desc">Videochamada dedicada ao seu negócio. Sem script, sem receita pronta. A gente entende o problema de verdade e cria junto o sistema que resolve — prioridades claras, próximos movimentos definidos.</p>
-      </div>
-      <div class="step-card reveal reveal-delay-2">
-        <p class="step-tag">Depois da sessão</p>
-        <p class="step-num">03</p>
-        <p class="step-title">Plano Estratégico</p>
-        <p class="step-desc">Você sai com um documento com os próximos movimentos priorizados e sequenciados. Não teoria — execução. Algo concreto nas mãos, não só insights que somem no dia seguinte.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- BRAND CONTEXT -->
-  <section id="brand">
-    <div class="brand-inner">
-      <div class="reveal">
-        <p class="scene-label">Add-on opcional</p>
-        <h2 class="brand-headline">Brand<br><em>Context™</em></h2>
-        <p class="brand-body">Antes da sua sessão, a gente faz também um mapeamento de marca — identidade, posicionamento e tom de voz. Um documento de contexto que você leva pra qualquer direção criativa.</p>
-        <p style="font-size:0.82rem;color:var(--muted);line-height:1.6;">Adicionado no momento da contratação. Entregue antes da sessão.</p>
-      </div>
-      <div class="brand-card reveal reveal-delay-1">
-        <div class="brand-card-top">
-          <p class="brand-tag">● Disponível como add-on</p>
-          <p class="brand-name">Brand Context™</p>
-          <p class="brand-sub">Mapeamento de marca · Entregue em 48h</p>
+      <div class="contrast-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.75rem;">
+
+        <div class="contrast-card reveal">
+          <p class="contrast-card__label contrast-card__label--muted">Sem o Brief.ai</p>
+          <p class="contrast-card__title">Cada semana começa do zero</p>
+          <p class="contrast-card__body">Redator precisa do briefing. Briefing está desatualizado. Designer espera. Cliente cobra. Equipe apaga incêndio.</p>
         </div>
-        <div class="brand-features">
-          <div class="brand-feature">Análise de identidade e posicionamento atual</div>
-          <div class="brand-feature">Tom de voz e percepção de marca</div>
-          <div class="brand-feature">Documento de contexto completo</div>
+
+        <div class="contrast-card reveal reveal--delay-1">
+          <p class="contrast-card__label contrast-card__label--accent">Com o Brief.ai</p>
+          <p class="contrast-card__title contrast-card__title--light">Contexto sempre ativo</p>
+          <p class="contrast-card__body" style="color: var(--_dark-100);">Redator abre o sistema, informa o tema da semana, recebe estrutura completa dentro da voz do candidato. Designer aplica identidade e exporta.</p>
         </div>
-        <div class="brand-price-block">
-          <div>
-            <p class="brand-price">R$27</p>
-            <p class="brand-price-note">Adicionado no checkout</p>
-          </div>
-          <a class="btn-pill" style="font-size:0.85rem;padding:12px 22px;" href="https://wa.me/5571996551316?text=Oi%2C+quero+a+sess%C3%A3o+do+Criando+em+Paz+com+o+Brand+Context" target="_blank" rel="noopener">Adicionar →</a>
-        </div>
+
       </div>
     </div>
   </section>
 
 
-  <!-- OFERTA -->
-  <section id="oferta">
-    <div class="oferta-top reveal">
-      <h2 class="oferta-headline">Bora<em>?</em></h2>
-      <p class="oferta-sub">Vagas limitadas por semana. Quando fecha, fecha. Sem lista de espera — você agenda agora ou espera a próxima janela.</p>
-    </div>
-    <div class="oferta-card reveal">
-      <div class="oferta-left">
-        <p class="oferta-tag"><span class="oferta-dot"></span> Vagas abertas — Maio 2026</p>
-        <p class="oferta-nome">Criando em Paz™</p>
-        <p class="oferta-subtitle">Consultoria Individual · Sessão de 2h</p>
-        <ul class="oferta-includes">
-          <li>Pré-mapeamento do negócio (diagnóstico em 48h)</li>
-          <li>Sessão de 2h individual (videochamada)</li>
-          <li>Plano estratégico personalizado em documento</li>
-          <li>Canal direto por mensagem (resposta em 12h úteis)</li>
-          <li>Garantia — se não fizer sentido, a gente resolve</li>
-        </ul>
-      </div>
-      <div class="oferta-right">
-        <div>
-          <p class="oferta-price-label">Investimento</p>
-          <p class="oferta-price">R$147</p>
-          <p class="oferta-price-note">Pagamento único · Acesso imediato ao agendamento</p>
-        </div>
-        <div>
-          <a class="btn-oferta" href="https://wa.me/5571996551316?text=Oi%2C+quero+marcar+minha+sess%C3%A3o+do+Criando+em+Paz" target="_blank" rel="noopener">
-            Contratar agora →
-          </a>
-          <p class="oferta-guarantee">Pagamento seguro · Agendamento imediato · Garantia inclusa</p>
-          <div class="oferta-trust">
-            <span class="oferta-trust-item">✓ Compra segura</span>
-            <span class="oferta-trust-item">✓ Garantia</span>
-            <span class="oferta-trust-item">✓ Acesso imediato</span>
+  <!-- ══════════════════════════════
+       COMO FUNCIONA
+  ══════════════════════════════ -->
+  <section class="section">
+    <div class="page-wrapper">
+
+      <h2 class="type-display text-primary reveal" style="margin-bottom: 1rem;">
+        Como<br><em>funciona.</em>
+      </h2>
+      <p class="type-body reveal" style="margin-bottom: 2.75rem;">
+        Uma configuração. Depois disso, operação semanal sem fricção.
+      </p>
+
+      <div class="steps-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+
+        <div class="card step-card reveal">
+          <span class="step-card__ghost">1</span>
+          <p class="step-card__number">01</p>
+          <p class="step-card__title">Onboarding e contexto</p>
+          <p class="step-card__body">Mapeamos o candidato: narrativa, posicionamento, temas prioritários, tom de voz, o que nunca diria. Esse material vira o contexto permanente do sistema.</p>
+          <div class="step-card__note">
+            <strong style="color: var(--color-text-secondary);">Feito pela Nebu.</strong> Uma vez. Incluso na licença.
           </div>
         </div>
+
+        <div class="card step-card reveal reveal--delay-1">
+          <span class="step-card__ghost">2</span>
+          <p class="step-card__number">02</p>
+          <p class="step-card__title">Sistema editorial</p>
+          <p class="step-card__body">Linhas de conteúdo, critérios de pauta, formatos — carrossel, thread, card avulso. Tudo documentado pra equipe operar sem depender de ninguém.</p>
+          <div class="step-card__note">
+            <strong style="color: var(--color-text-secondary);">Ativo da agência.</strong> Não some se o contrato acabar.
+          </div>
+        </div>
+
+        <div class="card step-card reveal reveal--delay-2">
+          <span class="step-card__ghost">3</span>
+          <p class="step-card__number">03</p>
+          <p class="step-card__title">Geração semanal</p>
+          <p class="step-card__body">O redator informa o tema. O Brief.ai gera a estrutura completa — texto por slide, fio do Twitter, legenda — dentro da voz do candidato. Pronto pra design aplicar.</p>
+          <div class="step-card__note">
+            <strong style="color: var(--color-text-secondary);">Output direto</strong> pro Figma via plugin ou CSV no Figma Buzz.
+          </div>
+        </div>
+
+        <div class="card step-card reveal reveal--delay-3">
+          <span class="step-card__ghost">4</span>
+          <p class="step-card__number">04</p>
+          <p class="step-card__title">Designer aplica e entrega</p>
+          <p class="step-card__body">Estrutura chega formatada no Figma. Designer cuida de narrativa visual, autenticidade e acabamento. Exporta PNG. Equipe de social publica.</p>
+          <div class="step-card__note">
+            <strong style="color: var(--color-text-secondary);">Candidato aprova.</strong> Não produz, não briefa, não toca no sistema.
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="faq-inner">
-      <h2 class="faq-headline reveal">Perguntas<br>que sempre<br><em>aparecem.</em></h2>
-      <div class="faq-list">
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            Funciona pra que tipo de negócio?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-a">
-            Funciona pra qualquer criativo que vende serviço com a própria expertise — artistas, designers, videomakers, fotógrafos, redatores, consultores, coaches. Funciona tanto pra quem está nos primeiros meses quanto pra quem já tem clientes mas sente que o negócio não está organizado do jeito certo.
+
+  <!-- ══════════════════════════════
+       O QUE VEM NA LICENÇA
+  ══════════════════════════════ -->
+  <section class="section section--surface-raised">
+    <div class="page-wrapper">
+
+      <h2 class="type-display text-primary reveal" style="margin-bottom: 2.75rem;">
+        O que vem<br>na <em>licença.</em>
+      </h2>
+
+      <div class="table-ruled reveal">
+
+        <div class="table-ruled__row">
+          <div class="table-ruled__label">Licença</div>
+          <div class="table-ruled__value">
+            <strong class="text-primary">Vitalícia, por candidato.</strong> Sem mensalidade, sem renovação, sem surpresa de cobrança no meio da campanha.
           </div>
         </div>
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            Preciso ter um negócio grande ou já faturando bem?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-a">
-            Não. O ponto de partida varia — o trabalho se adapta ao seu momento. O que importa é você estar disposto(a) a trabalhar no negócio, não só dentro dele.
+
+        <div class="table-ruled__row">
+          <div class="table-ruled__label">Onboarding</div>
+          <div class="table-ruled__value">
+            Sessão de mapeamento com a Nebu. <strong class="text-primary">Contexto do candidato configurado e ativo</strong> antes da equipe começar a operar.
           </div>
         </div>
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            É diferente de mentoria em grupo?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-a">
-            Completamente. Mentoria em grupo tem você como um entre 200, com script genérico. Aqui é você, seu negócio e uma consultora dedicada. Sem framework que não encaixa — tudo parte do que você tem de verdade.
+
+        <div class="table-ruled__row">
+          <div class="table-ruled__label">Sistema</div>
+          <div class="table-ruled__value">
+            Interface local + skill configurada. <strong class="text-primary">Roda no Claude Code ou na interface.</strong> Equipe opera sem depender de acesso externo.
           </div>
         </div>
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            E se eu já tiver feito outras mentorias antes?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-a">
-            Melhor ainda — você já sabe o que funciona e o que não funciona pra você. Isso acelera o diagnóstico. A Criando em Paz não é método genérico: é consultoria individual que parte do seu contexto, não de um template.
+
+        <div class="table-ruled__row">
+          <div class="table-ruled__label">Integração</div>
+          <div class="table-ruled__value">
+            Output formatado para <strong class="text-primary">Figma via plugin ou Figma Buzz (CSV).</strong> Designer recebe estrutura pronta, não texto solto.
           </div>
         </div>
-        <div class="faq-item reveal">
-          <button class="faq-q" aria-expanded="false">
-            E se não for pra mim?
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-a">
-            Garantia inclusa. Se você sentir que não faz sentido pro seu momento, a gente resolve. Sem burocracia. Sem perguntas.
+
+        <div class="table-ruled__row">
+          <div class="table-ruled__label">Documentação</div>
+          <div class="table-ruled__value">
+            Guia de operação para o redator e o designer. <strong class="text-primary">A equipe roda sem precisar de treinamento contínuo.</strong>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- FINAL CTA -->
-  <section id="final">
-    <h2 class="final-headline reveal">
-      Chega de<br>criar no<br><em>limite.</em>
-    </h2>
-    <div class="final-actions reveal reveal-delay-1">
-      <a class="btn-pill btn-pill-white" href="https://wa.me/5571996551316?text=Oi%2C+quero+marcar+minha+sess%C3%A3o+do+Criando+em+Paz" target="_blank" rel="noopener">
-        Contratar agora →
+
+  <!-- ══════════════════════════════
+       ROI
+  ══════════════════════════════ -->
+  <section class="section">
+    <div class="page-wrapper">
+
+      <h2 class="type-display text-primary reveal" style="margin-bottom: 2.25rem;">
+        A conta<br>fecha <em>rápido.</em>
+      </h2>
+
+      <div class="roi-grid reveal" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+
+        <div class="roi-col">
+          <div class="roi-col__head">
+            <span class="roi-col__head-label roi-col__head-label--muted">Sem o sistema</span>
+          </div>
+          <div class="roi-col__body">
+            <div class="roi-col__figure roi-col__figure--muted">4–8h</div>
+            <div class="roi-col__unit">por carrossel</div>
+            <p class="roi-col__note">Pauta, texto, revisão, briefing pro design. Multiplica por três candidatos.</p>
+          </div>
+        </div>
+
+        <div class="roi-col reveal reveal--delay-1">
+          <div class="roi-col__head">
+            <span class="roi-col__head-label roi-col__head-label--strong">Com o Brief.ai</span>
+          </div>
+          <div class="roi-col__body">
+            <div class="roi-col__figure roi-col__figure--strong">30min</div>
+            <div class="roi-col__unit">por carrossel</div>
+            <p class="roi-col__note">Redator informa o tema. Sistema gera. Designer aplica. Feito.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="callout reveal">
+        <p class="callout__text">
+          Com dois candidatos produzindo 4 carrosseis por semana, a equipe economiza entre <strong class="text-primary">48 e 96 horas por mês</strong> só em produção de texto. Em três meses de pré-campanha, o sistema se paga em hora de redator antes de qualquer outro cálculo.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════
+       CTA FINAL
+  ══════════════════════════════ -->
+  <section id="cta" class="section section--surface-inverse" style="min-height: 75svh; display: flex; align-items: flex-end;">
+    <div class="page-wrapper" style="padding-top: 0; padding-bottom: 1rem;">
+
+      <h2 class="type-hero text-inverse reveal" style="margin-bottom: 2.25rem;">
+        Uma conversa<br>antes<br>da campanha<br><em class="text-accent">começar.</em>
+      </h2>
+
+      <p class="type-body text-inverse-secondary reveal" style="max-width: 460px; margin-bottom: 2.5rem;">
+        Mostramos como funciona aplicado ao perfil dos seus candidatos. Você decide se faz sentido antes de qualquer comprometimento.
+      </p>
+
+      <a class="btn btn--inverse reveal" href="https://wa.me/5571996551316" target="_blank" rel="noopener">
+        Falar com a Nebu →
       </a>
-      <p class="final-note">vagas limitadas por semana ↘</p>
+
+      <div class="cta-footer reveal">
+        <div>
+          <div class="cta-footer__brand">Brief.ai</div>
+          <div class="cta-footer__sub">by Nebu Company</div>
+        </div>
+        <p class="cta-footer__copy">© 2026 · Licença única R$20.000</p>
+      </div>
+
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p class="footer-logo">Criando<em>.</em>em<em>.</em>paz</p>
-    <p class="footer-copy">© 2026 · Feito com cuidado pela <a href="https://nebucompany.com.br" target="_blank" rel="noopener">Nebu Company</a></p>
-  </footer>
 
   <script>
-    // ── SCROLL ANIMATIONS ──
-    const observer = new IntersectionObserver((entries) => {
+    const obs = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
+          e.target.classList.add('is-visible');
+          obs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.08 });
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // ── STICKY BAR ──
-    const stickyBar = document.getElementById('sticky-bar');
-    const hero = document.getElementById('hero');
-    const oferta = document.getElementById('oferta');
-
-    const stickyObserver = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.target === hero) {
-          stickyBar.classList.toggle('visible', !e.isIntersecting);
-        }
-        if (e.target === oferta) {
-          if (e.isIntersecting) stickyBar.classList.remove('visible');
-        }
-      });
-    }, { threshold: 0.05 });
-
-    stickyObserver.observe(hero);
-    stickyObserver.observe(oferta);
-
-    // ── NAV SCROLLED ──
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 40);
-    }, { passive: true });
-
-    // ── FAQ ACCORDION ──
-    document.querySelectorAll('.faq-q').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item.open').forEach(i => {
-          i.classList.remove('open');
-          i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-        });
-        if (!isOpen) {
-          item.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>
-
 
 </body>
 </html>
