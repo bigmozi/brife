@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="https://use.typekit.net/yrc2zyy.css" />
 
   <style>
-    .ticker-track { display: flex; animation: ticker 32s linear infinite; width: max-content; }
+    .ticker-track { display: flex; align-items: center; animation: ticker 32s linear infinite; width: max-content; }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s cubic-bezier(0.16,1,0.3,1), transform .6s cubic-bezier(0.16,1,0.3,1); }
@@ -296,25 +296,51 @@
 
   <!-- ADD-ON -->
   <section class="px-4 sm:px-6 md:px-12 py-12 md:py-[100px] bg-surface-overlay">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-end mb-12 md:mb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
       <div class="reveal">
-        <h2 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.88] text-[clamp(2rem,5vw,8rem)]">
-          Produzir<br>é o básico.<br>Vencer é<br><em class="not-italic text-brand-accent">estratégia.</em>
+        <p class="font-display font-bold text-[0.65rem] tracking-[0.22em] uppercase text-text-tertiary mb-8">Add-on opcional</p>
+        <h2 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.88] text-[clamp(2.5rem,5vw,7rem)] mb-8">
+          Inteligência<br><em class="not-italic text-brand-accent">Competitiva</em>
         </h2>
+        <p class="text-base text-text-secondary leading-[1.75] max-w-[420px] mb-6">
+          Produzir dentro da voz do candidato resolve o volume. Saber o que os adversários estão fazendo, o que está engajando no eleitorado e o que adaptar antes dos outros é o que move o ponteiro.
+        </p>
+        <p class="text-[0.78rem] text-text-tertiary leading-[1.5]">Adicionado no momento da contratação. Entregue periodicamente pelo time da Nebu.</p>
       </div>
-      <p class="text-base text-text-secondary leading-[1.75] reveal">
-        Produção dentro da voz do candidato resolve o volume. Saber o que os adversários estão fazendo, o que está engajando no eleitorado e o que adaptar antes dos outros é o que move o ponteiro.
-      </p>
-    </div>
-    <div class="reveal flex flex-col bg-surface-raised border border-border-subtle rounded-card p-8 md:p-10 hover:border-border-default transition-colors duration-200">
-      <p class="font-body text-[0.68rem] tracking-[0.18em] uppercase text-text-tertiary mb-6">Add-on</p>
-      <p class="font-display font-extrabold text-[1.2rem] md:text-[1.6rem] uppercase tracking-[-0.02em] mb-4 leading-[1.05]">Inteligência Competitiva</p>
-      <p class="text-[0.85rem] md:text-[0.9rem] text-text-secondary leading-[1.7]">Monitoramento dos adversários diretos, tendências do eleitorado e virais com potencial de adaptação para o perfil do candidato. Entregue como consultoria periódica com análise de performance da conta, pontos cegos e recomendações de ajuste, pelo mesmo time que configurou o sistema.</p>
-    </div>
-    <div class="mt-6 p-8 md:p-12 bg-surface-base border border-border-default rounded-card border-l-[3px] border-l-brand-accent reveal">
-      <p class="text-[0.9rem] md:text-[0.95rem] text-text-secondary leading-[1.75] max-w-[680px]">
-        O add-on é contratado separadamente. <strong class="text-text-primary">Fale com a Nebu para entender o formato certo para o ciclo do seu candidato.</strong>
-      </p>
+      <div class="reveal reveal-delay-1 bg-surface-raised border border-border-subtle rounded-card overflow-hidden">
+        <div class="px-6 md:px-8 py-5 border-b border-border-subtle">
+          <p class="flex items-center gap-2 font-body text-[0.68rem] tracking-[0.16em] uppercase text-brand-accent">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-accent inline-block"></span> Disponível como add-on
+          </p>
+        </div>
+        <div class="px-6 md:px-8 py-5 border-b border-border-subtle">
+          <p class="font-display font-extrabold text-[1.1rem] md:text-[1.4rem] uppercase tracking-[-0.02em] leading-none mb-1.5">Inteligência Competitiva™</p>
+          <p class="text-[0.75rem] text-text-tertiary">Consultoria periódica · Entregue pelo time da Nebu</p>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-start gap-3 px-6 md:px-8 py-4 border-b border-border-subtle">
+            <span class="text-brand-accent flex-shrink-0 mt-0.5">↗</span>
+            <p class="text-[0.85rem] text-text-secondary leading-[1.6]">Monitoramento dos adversários diretos: formatos, temas, frequência e performance</p>
+          </div>
+          <div class="flex items-start gap-3 px-6 md:px-8 py-4 border-b border-border-subtle">
+            <span class="text-brand-accent flex-shrink-0 mt-0.5">↗</span>
+            <p class="text-[0.85rem] text-text-secondary leading-[1.6]">Tendências do eleitorado e virais com potencial de adaptação para o perfil do candidato</p>
+          </div>
+          <div class="flex items-start gap-3 px-6 md:px-8 py-4 border-b border-border-subtle">
+            <span class="text-brand-accent flex-shrink-0 mt-0.5">↗</span>
+            <p class="text-[0.85rem] text-text-secondary leading-[1.6]">Relatório periódico com pontos cegos e recomendações de ajuste da conta</p>
+          </div>
+        </div>
+        <div class="px-6 md:px-8 py-6 flex items-center justify-between gap-4">
+          <p class="text-[0.75rem] text-text-tertiary leading-[1.5]">Valor sob consulta</p>
+          <a href="https://wa.me/5571996551316" target="_blank" rel="noopener"
+             class="inline-flex items-center font-display font-bold text-[0.78rem] tracking-[0.1em] uppercase no-underline
+                    bg-brand-accent hover:bg-brand-accent-h text-surface-base
+                    px-5 py-3 rounded-pill transition-colors duration-200 whitespace-nowrap">
+            Adicionar →
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -360,9 +386,6 @@
     </div>
     <div id="cta" class="grid grid-cols-1 md:grid-cols-2 bg-surface-raised border border-border-subtle rounded-card overflow-hidden reveal">
       <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-border-subtle">
-        <p class="flex items-center gap-2 font-body text-[0.7rem] tracking-[0.16em] uppercase text-brand-accent mb-6">
-          <span class="w-1.5 h-1.5 rounded-full bg-brand-accent inline-block"></span> Vagas abertas, Maio 2026
-        </p>
         <p class="font-display font-extrabold text-[1.6rem] md:text-[2.2rem] uppercase leading-none mb-6">Escale.ai™</p>
         <ul class="flex flex-col gap-3 md:gap-3.5 list-none text-[0.88rem] text-text-secondary leading-[1.65]">
           <li class="flex items-start gap-2.5"><span class="text-brand-accent mt-0.5 flex-shrink-0">✓</span> <strong class="text-text-primary">Sistema instalado em 7 dias.</strong> A Nebu configura tudo. No sétimo dia, sua equipe já produz dentro da narrativa do candidato.</li>
@@ -374,7 +397,7 @@
       </div>
       <div class="p-8 md:p-12 flex flex-col justify-center gap-8">
         <a href="https://wa.me/5571996551316" target="_blank" rel="noopener"
-           class="block w-full text-center bg-brand-accent hover:bg-brand-accent-h
+           class="block w-full max-w-xs text-center bg-brand-accent hover:bg-brand-accent-h
                   text-surface-base font-display font-bold text-base md:text-[1.1rem] tracking-[0.08em] uppercase no-underline
                   px-8 py-5 rounded-pill mb-4 transition-colors duration-200">
           Quero ver funcionando →
