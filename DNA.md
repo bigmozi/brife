@@ -113,9 +113,13 @@ Monitoramento de adversários diretos (formatos, temas, frequência, performance
 
 ## 6. Faixas de investimento
 
-- Licença Escale.ai: R$ 4.000 a R$ 6.000, investimento único por campanha, vitalício (sem mensalidade, sem renovação). Faixa varia conforme complexidade do mapeamento e volume de formatos configurados.
+- Licença Designer (plugin de Figma, sem geração de texto): R$ 1.500, investimento único por campanha, vitalício (sem mensalidade, sem renovação).
+- Licença Redator (geração de texto, sem plugin Figma): R$ 4.000, investimento único, vitalício.
+- Licença Completa (redator + designer, fim a fim, com suporte): R$ 7.000, investimento único, vitalício.
 - Add-on Inteligência Competitiva™: sob consulta, contratado à parte.
 - Preço não aparece explícito na landing page — fica para negociação direta via WhatsApp, depois do lead ver o sistema funcionando com um brief real do candidato.
+
+*(Atualizado 2026-08-11 — v2 de preço. Substitui a faixa única R$4.000-6.000 desta seção.)*
 
 ---
 
