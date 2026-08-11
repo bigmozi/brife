@@ -8,7 +8,7 @@ type: project
 
 > Deriva de [analise-lba.md](analise-lba.md). Cada item aqui é uma ação de execução em `index.html`, não mais diagnóstico. Ordem = prioridade (impacto alto / esforço baixo primeiro).
 
-## Fase imediata (baixo esforço, alto impacto)
+## Fase imediata (baixo esforço, alto impacto) — ✅ concluída 2026-08-11
 
 **1. Seção "Sobre a Nebu"**
 Inserir entre "Resultado" e "Licença". 1 bloco curto: quem constrói o Escale.ai, herança do padrão Mozi ("sistema simples, autonomia — conhecimento fica no sistema, não numa pessoa" — o mesmo princípio que o produto vende, aplicado a quem vende), sem bio clássica de "fundou X, faturou Y" (a LBA recomenda evitar esse clichê). Resolve prova pessoal.
@@ -22,23 +22,23 @@ Adicionar pergunta: algo como "O uso de IA é permitido pelo TSE?". Resposta dir
 **4. FAQ — preço**
 Adicionar pergunta "Quanto custa?". Resposta que não revela o número mas também não é vazia: menciona que varia por complexidade do mapeamento e que a Nebu apresenta a faixa depois de mostrar o sistema funcionando com o brief real do candidato.
 
-## Fase seguinte (esforço médio, alto impacto — depende de material)
+## Fase seguinte (esforço médio, alto impacto — depende de material) — ✅ concluída 2026-08-11 (versão ilustrativa)
 
-**5. Prova técnica — antes/depois**
-Montar 1 exemplo lado a lado: prompt genérico ("escreva um post sobre saneamento") vs. saída Escale.ai com contexto do candidato instalado. Pode ser exemplo fictício/demo (deixar claro que é ilustrativo) até existir caso real. Maior prova de que "a voz é do candidato, não do ChatGPT genérico" — a promessa central do produto, hoje só descrita, nunca mostrada.
+**5. Prova técnica — antes/depois** ✅
+Implementado como exemplo ilustrativo fictício (prompt genérico vs. saída Escale.ai), com selo explícito "não reflete um candidato ou campanha real". Trocar pelo exemplo real assim que houver caso — ver item 9.
 
-**6. Prova visual — mockup**
-Print ou mockup de 1 template Canva preenchido pelo sistema. Mesmo com dado fictício, resolve a lacuna sensorial (zero imagem na página hoje, pra um produto cujo entregável final é visual).
+**6. Prova visual — mockup** ✅
+Mockup de template de post construído em HTML/CSS (sem imagem externa), com selo "Exemplo". Trocar por print real do Canva quando disponível.
 
 ## Fase de manutenção (baixo esforço, roda quando surgir insumo)
 
-**7. Dobra própria pro plugin de Figma** — hoje é linha perdida em 3 blocos; vira 1 card pequeno próprio, no padrão do add-on Inteligência Competitiva.
+**7. Dobra própria pro plugin de Figma** ✅ — virou seção própria, formato espelhado no add-on Inteligência Competitiva.
 
-**8. Sonho explícito** — 1-2 frases amarrando o lado positivo (não só fuga da dor) no hero ou logo abaixo. Consolidar depois num documento de macronarrativa único (hoje espalhado em DNA+PRD+LP).
+**8. Sonho explícito** ✅ — linha adicionada no hero: "O que fica: uma campanha que responde em minutos e ainda sobra tempo pra pensar estratégia todo dia." Ainda falta consolidar num documento de macronarrativa único (hoje espalhado em DNA+PRD+LP).
 
-**9. Prova social** — entra assim que existir o primeiro cliente do posicionamento pós-pivô. Não dá pra adiantar sem case real.
+**9. Prova social** — entra assim que existir o primeiro cliente do posicionamento pós-pivô. Não dá pra adiantar sem case real. Quando existir, também trocar os exemplos ilustrativos dos itens 5 e 6 pelo caso de verdade.
 
-**10. Consolidar `index 3.html` / `index .html`** — decidir descartar ou arquivar (risco de mensagem inconsistente com linguagem de agência antiga, já sinalizado como Fase 3 no PRD). Não é urgente pra hoje, mas fica registrado pra não esquecer.
+**10. Consolidar `index 3.html` / `index .html`** ✅ — arquivos descartados (nunca estavam versionados no git, então não geram diff de remoção).
 
 ---
 
