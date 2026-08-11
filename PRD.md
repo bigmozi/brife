@@ -90,7 +90,7 @@ Fora de escopo nesta fase: agências que gerenciam carteira de múltiplos candid
 - RNF01: tempo de carregamento percebido abaixo de 2 segundos em conexão 4G (página estática, sem backend).
 - RNF02: responsiva de 375px a 1440px de largura, testada em mobile antes de qualquer divulgação paga.
 - RNF03: todo CTA leva para WhatsApp com mensagem pré-preenchida.
-- RNF04: nenhuma menção a preço explícito na página — a faixa de investimento (R$ 4.000–6.000, ver `DNA.md`, seção 6) fica reservada para a conversa via WhatsApp.
+- RNF04: preço exposto explicitamente na página (decisão revertida em 2026-08-11) — os 3 valores por módulo (Licença Designer R$1.500 / Redator R$4.000 / Completa R$7.000, ver `DNA.md`, seção 6) aparecem na seção "Licença" e na FAQ "Quanto custa". Substitui a regra anterior de preço reservado só pra conversa via WhatsApp.
 - RNF05: linguagem falando diretamente com quem está dentro da campanha (candidato, coordenador, estrategista) — sem enquadrar a dor como problema de margem, contratação ou orçamento de agência (ver histórico do pivô, `DNA.md` seção 4.1).
 - RNF06: nenhuma alegação de resultado eleitoral. Números de eficiência (posts/mês, horas economizadas) podem aparecer como estimativa de rotina, nunca como promessa de resultado de campanha.
 
