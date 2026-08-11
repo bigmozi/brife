@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Escale.ai — Apresentação</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          surface: { base: '#0a0a0a', raised: '#111111', overlay: '#161616' },
+          border:  { subtle: '#1e1e1e', default: '#2a2a2a' },
+          text:    { primary: '#ffffff', secondary: '#888888', tertiary: '#555555' },
+          brand:   { accent: '#c8a96a', 'accent-h': '#b89558' },
+        },
+        fontFamily: {
+          display: ['"neue-haas-grotesk-display"', 'sans-serif'],
+          body:    ['"neue-haas-grotesk-text"', '"Plus Jakarta Sans"', 'sans-serif'],
+        },
+      },
+    },
+  }
+</script>
+<link rel="stylesheet" href="https://use.typekit.net/yrc2zyy.css" />
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
+  .slide {
+    min-height: 100svh; width: 100%;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 6vh 6vw; position: relative;
+    scroll-snap-align: start;
+  }
+  #deck { scroll-snap-type: y mandatory; overflow-y: scroll; height: 100svh; }
+  .num { position: absolute; top: 4vh; right: 6vw; font-family: 'neue-haas-grotesk-display', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: #555555; }
+  .brand { position: absolute; top: 4vh; left: 6vw; font-family: 'neue-haas-grotesk-display', sans-serif; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: #ffffff; }
+  .brand span { color: #c8a96a; }
+  .avd-cell { display: flex; align-items: flex-start; gap: 0.6rem; padding: 0.9rem 1.6rem; font-size: 0.95rem; color: #888888; line-height: 1.5; border-bottom: 1px solid #1e1e1e; }
+</style>
+</head>
+<body class="font-body bg-surface-base text-text-primary antialiased">
+
+<div id="deck">
+
+  <!-- 0. CAPA -->
+  <section class="slide bg-surface-base">
+    <p class="font-display font-bold text-[0.7rem] tracking-[0.22em] uppercase text-text-tertiary mb-8">Infraestrutura de conteúdo para campanha</p>
+    <h1 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.88] text-[clamp(2.8rem,8vw,8.5rem)] max-w-[1200px] mb-8">
+      Uma campanha.<br>Um sistema.<br>A narrativa <em class="not-italic text-brand-accent">não para.</em>
+    </h1>
+    <p class="text-lg text-text-secondary leading-[1.7] max-w-[560px]">Escale.ai aprende o contexto do candidato uma vez. A partir daí, qualquer pessoa da campanha gera 3 posts por dia dentro da narrativa certa — direto no Canva.</p>
+    <p class="num">01 / 11</p>
+  </section>
+
+  <!-- 1. O PROBLEMA -->
+  <section class="slide bg-surface-base">
+    <p class="brand">Escale<span>.</span>ai</p>
+    <h2 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.9] text-[clamp(2.2rem,5.5vw,5.5rem)] mb-10">
+      Duas dores que a gente<br>já viveu <em class="not-italic text-brand-accent">junto.</em>
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[1100px]">
+      <div class="p-6 bg-surface-raised border border-border-subtle rounded-2xl">
+        <p class="text-brand-accent font-display font-extrabold text-2xl opacity-60 mb-2">01</p>
+        <p class="text-text-secondary text-[0.95rem] leading-[1.6]"><strong class="text-text-primary">Notícia estoura, resposta atrasa.</strong> Não é falta de gente — é que cada resposta começa do zero, disputando a mesma cabeça que devia estar em estratégia.</p>
+      </div>
+      <div class="p-6 bg-surface-raised border border-border-subtle rounded-2xl">
+        <p class="text-brand-accent font-display font-extrabold text-2xl opacity-60 mb-2">02</p>
+        <p class="text-text-secondary text-[0.95rem] leading-[1.6]"><strong class="text-text-primary">Orçamento curto, volume que não pode cair.</strong> Cada real importa. Manter equipe grande só pra sustentar ritmo de conteúdo pesa todo mês.</p>
+      </div>
+      <div class="p-6 bg-surface-raised border border-border-subtle rounded-2xl">
+        <p class="text-brand-accent font-display font-extrabold text-2xl opacity-60 mb-2">03</p>
+        <p class="text-text-secondary text-[0.95rem] leading-[1.6]"><strong class="text-text-primary">Retrabalho entre social e arte.</strong> Sem contexto compartilhado, a peça vai e volta — tempo que devia virar postagem vira ajuste.</p>
+      </div>
+      <div class="p-6 bg-surface-raised border border-border-subtle rounded-2xl">
+        <p class="text-brand-accent font-display font-extrabold text-2xl opacity-60 mb-2">04</p>
+        <p class="text-text-secondary text-[0.95rem] leading-[1.6]"><strong class="text-text-primary">Time grande não resolve sozinho.</strong> Resolve sistema. É a diferença entre ter gente e ter padrão.</p>
+      </div>
+    </div>
+    <p class="num">02 / 11</p>
+  </section>
+
+  <!-- 1.5 CASE -->
+  <section class="slide bg-surface-overlay">
+    <p class="brand">Escale<span>.</span>ai</p>
+    <p class="font-display font-bold text-[0.7rem] tracking-[0.22em] uppercase text-text-tertiary mb-6">Quem constrói o sistema já viveu isso</p>
+    <h2 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.9] text-[clamp(2rem,5vw,4.5rem)] mb-8 max-w-[900px]">
+      Time grande, presencial,<br>e o gargalo <em class="not-italic text-brand-accent">apareceu do mesmo jeito.</em>
+    </h2>
+    <p class="text-text-secondary text-lg max-w-[680px] mb-8 leading-[1.8]">Numa campanha presencial de deputado estadual, com diretor de arte, assistente de artes, dois social medias e uma pessoa dedicada a monitorar concorrência — time cheio, comunicação fácil, todo mundo junto — a resposta a notícia ainda atrasava, e o retrabalho entre social e arte comia o tempo que devia ir pra estratégia.</p>
+    <p class="text-brand-accent text-[0.95rem] font-semibold max-w-[680px]">Time grande não é sistema. O Escale.ai é o sistema que a gente queria ter tido naquela campanha.</p>
+    <p class="num">03 / 11</p>
+  </section>
+
+  <!-- 2. A CONTA -->
+  <section class="slide bg-surface-overlay">
+    <p class="brand">Escale<span>.</span>ai</p>
+    <h2 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.9] text-[clamp(2.2rem,6vw,6.5rem)] mb-10">A conta não mente.</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[1000px]">
+      <div class="bg-surface-raised border border-border-subtle rounded-2xl overflow-hidden">
+        <div class="px-7 py-4 border-b border-border-subtle font-display font-bold text-[0.75rem] tracking-[0.2em] uppercase text-text-tertiary">Sem sistema</div>
+        <div class="p-8">
+          <p class="font-display font-extrabold text-[4rem] text-text-tertiary leading-none mb-2">240h</p>
+          <p class="text-[0.75rem] uppercase tracking-[0.1em] text-text-tertiary mb-4">de produção por mês</p>
+          <p class="text-[0.9rem] text-text-secondary">60 posts × 4h médias — exige alguém disponível o tempo inteiro só pra sustentar o ritmo.</p>
+        </div>
+      </div>
+      <div class="bg-surface-raised border border-border-subtle rounded-2xl overflow-hidden">
+        <div class="px-7 py-4 border-b border-border-subtle font-display font-bold text-[0.75rem] tracking-[0.2em] uppercase text-brand-accent">Com Escale.ai</div>
+        <div class="p-8">
+          <p class="font-display font-extrabold text-[4rem] text-text-primary leading-none mb-2">30h</p>
+          <p class="text-[0.75rem] uppercase tracking-[0.1em] text-text-tertiary mb-4">de produção por mês</p>
+          <p class="text-[0.9rem] text-brand-accent font-semibold">210 horas liberadas por mês pra estratégia, agenda e resposta a crise.</p>
+        </div>
+      </div>
+    </div>
+    <p class="num">04 / 11</p>
+  </section>
+
+  <!-- 3. COMO FUNCIONA -->
+  <section class="slide bg-surface-base">
+    <p class="brand">Escale<span>.</span>ai</p>
+    <h2 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.9] text-[clamp(2.2rem,5.5vw,5.5rem)] mb-10">Em 5 dias,<br>sistema <em class="not-italic text-brand-accent">rodando.</em></h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-[1200px]">
+      <div class="p-6 bg-surface-raised border border-border-subtle rounded-2xl">
+        <p class="text-[0.65rem] tracking-[0.16em] uppercase text-brand-accent mb-3">Dia 1-2 · Nebu conduz</p>
+        <p class="font-display font-bold text-lg uppercase mb-2">Mapeamento</p>
+        <p class="text-text-secondary text-[0.85rem] leading-[1.6]">Narrativa, tom, o que nunca diria. Incluso na licença.</p>
+      </div>
+      <div class="p-6 bg-surface-raised border border-border-subtle rounded-2xl">
+        <p class="text-[0.65rem] tracking-[0.16em] uppercase text-brand-accent mb-3">Dia 2-4</p>
+        <p class="font-display font-bold text-lg uppercase mb-2">Linha editorial</p>
+        <p class="text-text-secondary text-[0.85rem] leading-[1.6]">Ativo da campanha — sobrevive a troca de equipe.</p>
+      </div>
+      <div class="p-6 bg-surface-raised border border-border-subtle rounded-2xl">
+        <p class="text-[0.65rem] tracking-[0.16em] uppercase text-brand-accent mb-3">Dia 5</p>
+        <p class="font-display font-bold text-lg uppercase mb-2">Produção 30min</p>
+        <p class="text-text-secondary text-[0.85rem] leading-[1.6]">Texto na voz do candidato, direto no Canva.</p>
+      </div>
+      <div class="p-6 bg-surface-raised border border-border-subtle rounded-2xl">
+        <p class="text-[0.65rem] tracking-[0.16em] uppercase text-brand-accent mb-3">Sempre</p>
+        <p class="font-display font-bold text-lg uppercase mb-2">Voz consistente</p>
+        <p class="text-text-secondary text-[0.85rem] leading-[1.6]">O conhecimento mora no sistema, não numa pessoa.</p>
+      </div>
+    </div>
+    <p class="num">05 / 11</p>
+  </section>
+
+  <!-- 4. ANTES/DEPOIS -->
+  <section class="slide bg-surface-overlay">
+    <p class="brand">Escale<span>.</span>ai</p>
+    <h2 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.9] text-[clamp(2.2rem,5.5vw,6rem)] mb-10">O que muda<br>na prática.</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[1000px]">
+      <div class="bg-surface-raised border border-border-subtle rounded-2xl overflow-hidden">
+        <div class="px-7 py-4 border-b border-border-subtle font-display font-bold text-[0.75rem] tracking-[0.2em] uppercase text-text-tertiary">Sem o Escale.ai</div>
+        <div class="avd-cell"><span class="text-text-tertiary">✗</span> Nova frente = mais uma coisa pra dar conta sozinho.</div>
+        <div class="avd-cell"><span class="text-text-tertiary">✗</span> Notícia estoura. Ninguém reage a tempo.</div>
+        <div class="avd-cell border-b-0"><span class="text-text-tertiary">✗</span> Quem escrevia some. O padrão some junto.</div>
+      </div>
+      <div class="bg-surface-raised border border-border-subtle rounded-2xl overflow-hidden">
+        <div class="px-7 py-4 border-b border-border-subtle font-display font-bold text-[0.75rem] tracking-[0.2em] uppercase text-brand-accent">Com o Escale.ai</div>
+        <div class="avd-cell"><span class="text-brand-accent">✓</span> Nova frente = o sistema já dá conta.</div>
+        <div class="avd-cell"><span class="text-brand-accent">✓</span> Contexto já está lá. Reação em minutos.</div>
+        <div class="avd-cell border-b-0"><span class="text-brand-accent">✓</span> O sistema fica. O padrão continua.</div>
+      </div>
+    </div>
+    <p class="num">06 / 11</p>
+  </section>
+
+  <!-- 5. LICENÇA -->
+  <section class="slide bg-surface-base">
+    <p class="brand">Escale<span>.</span>ai</p>
+    <h2 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.9] text-[clamp(2.2rem,5.5vw,6rem)] mb-10">O que você<br>leva na <em class="not-italic text-brand-accent">licença.</em></h2>
+    <ul class="flex flex-col gap-4 max-w-[720px] list-none text-[0.95rem] text-text-secondary leading-[1.6]">
+      <li class="flex items-start gap-3"><span class="text-brand-accent mt-0.5">✓</span><span><strong class="text-text-primary">Sistema instalado em 5 dias.</strong> A Nebu configura tudo.</span></li>
+      <li class="flex items-start gap-3"><span class="text-brand-accent mt-0.5">✓</span><span><strong class="text-text-primary">Licença vitalícia.</strong> Sem mensalidade, sem renovação.</span></li>
+      <li class="flex items-start gap-3"><span class="text-brand-accent mt-0.5">✓</span><span><strong class="text-text-primary">Mapeamento do candidato incluso.</strong> Contexto configurado e testado antes de operar.</span></li>
+      <li class="flex items-start gap-3"><span class="text-brand-accent mt-0.5">✓</span><span><strong class="text-text-primary">Templates prontos no Canva.</strong> Zero curva de aprendizado.</span></li>
+      <li class="flex items-start gap-3"><span class="text-brand-accent mt-0.5">✓</span><span><strong class="text-text-primary">Plugin de Figma, de bônus.</strong> Pra quem já tem designer.</span></li>
+      <li class="flex items-start gap-3"><span class="text-brand-accent mt-0.5">✓</span><span><strong class="text-text-primary">Guia de operação.</strong> Redator novo opera no padrão desde o dia 1.</span></li>
+    </ul>
+    <p class="num">07 / 11</p>
+  </section>
+
+  <!-- 5.5 ALÍVIO DE ORÇAMENTO -->
+  <section class="slide bg-surface-overlay">
+    <p class="brand">Escale<span>.</span>ai</p>
+    <h2 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.9] text-[clamp(2.2rem,5.5vw,5.5rem)] mb-10">O que isso<br>libera no <em class="not-italic text-brand-accent">orçamento.</em></h2>
+    <p class="text-text-secondary text-lg max-w-[620px] mb-6 leading-[1.8]">O investimento é único, não mensal. Pra campanha com budget curto, isso muda a conta: em vez de sustentar redator ou social media dedicado todo mês, o time aloca pra outras prioridades — e ainda mantém volume de conteúdo.</p>
+    <p class="text-[0.85rem] text-text-tertiary max-w-[600px]">Sem mensalidade, sem renovação. O sistema fica com a campanha — inclusive na próxima eleição.</p>
+    <p class="num">08 / 11</p>
+  </section>
+
+  <!-- 6. ADD-ON -->
+  <section class="slide bg-surface-overlay">
+    <p class="brand">Escale<span>.</span>ai</p>
+    <p class="font-display font-bold text-[0.7rem] tracking-[0.22em] uppercase text-text-tertiary mb-6">Add-on opcional</p>
+    <h2 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.9] text-[clamp(2.2rem,6vw,6.5rem)] mb-8">Inteligência <em class="not-italic text-brand-accent">Competitiva</em></h2>
+    <p class="text-text-secondary text-lg max-w-[560px] mb-8 leading-[1.7]">Produzir na voz do candidato resolve o volume. Saber o que os adversários estão fazendo é o que move o ponteiro.</p>
+    <ul class="flex flex-col gap-3 max-w-[600px] text-[0.9rem] text-text-secondary">
+      <li class="flex gap-3"><span class="text-brand-accent">↗</span> Monitoramento de adversários diretos</li>
+      <li class="flex gap-3"><span class="text-brand-accent">↗</span> Tendências do eleitorado com potencial de adaptação</li>
+      <li class="flex gap-3"><span class="text-brand-accent">↗</span> Relatório periódico com recomendações</li>
+    </ul>
+    <p class="num">09 / 11</p>
+  </section>
+
+  <!-- 7. POR QUE AGORA -->
+  <section class="slide bg-surface-base">
+    <p class="brand">Escale<span>.</span>ai</p>
+    <h2 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.9] text-[clamp(2.2rem,5.5vw,6rem)] mb-10">Por que <em class="not-italic text-brand-accent">agora.</em></h2>
+    <p class="text-text-secondary text-lg max-w-[640px] leading-[1.8]">2026 é ano de eleição geral. Quem já está em campanha ativa sente essa dor em tempo real — cada semana sem sistema é uma semana de produção manual, com o relógio da corrida correndo.</p>
+    <p class="num">10 / 11</p>
+  </section>
+
+  <!-- 8. CTA -->
+  <section class="slide bg-surface-base">
+    <p class="brand">Escale<span>.</span>ai</p>
+    <h2 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.88] text-[clamp(2.5rem,8vw,9rem)] max-w-[1100px] mb-10">
+      Próximo <em class="not-italic text-brand-accent">passo.</em>
+    </h2>
+    <p class="text-text-secondary text-lg max-w-[520px] mb-10 leading-[1.7]">Sistema funcionando com um brief real do candidato, antes de qualquer decisão. Sem comprometimento.</p>
+    <div class="flex items-center gap-4">
+      <span class="inline-flex items-center bg-brand-accent text-surface-base font-display font-bold text-base tracking-[0.08em] uppercase px-8 py-4 rounded-full">Mapeamento em 5 dias</span>
+    </div>
+    <p class="num">11 / 11</p>
+  </section>
+
+</div>
+
+<script>
+  document.addEventListener('keydown', (e) => {
+    const deck = document.getElementById('deck');
+    const h = window.innerHeight;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') { deck.scrollBy({ top: h, behavior: 'smooth' }); e.preventDefault(); }
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { deck.scrollBy({ top: -h, behavior: 'smooth' }); e.preventDefault(); }
+  });
+</script>
+
+</body>
+</html>
