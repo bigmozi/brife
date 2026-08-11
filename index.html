@@ -106,8 +106,11 @@
    <h1 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.88]
                text-[clamp(3rem,7.5vw,9.5rem)] max-w-[1200px] mb-6 md:mb-8">
       Uma<br>campanha.<br>Um sistema.<br>A narrativa<br><em id="cycling-hero" class="not-italic text-brand-accent">não para.</em> </h1>
-    <p class="text-base text-text-secondary leading-[1.7] max-w-[520px] mb-6 md:mb-8">
+    <p class="text-base text-text-secondary leading-[1.7] max-w-[520px] mb-4">
       Escale.ai aprende o contexto do candidato uma vez. A partir daí, qualquer pessoa da campanha gera 3 posts por dia dentro da narrativa certa — direto no Canva. 30 minutos por post. Sem briefing do zero. Sem depender de quem não está disponível.
+    </p>
+    <p class="text-base text-brand-accent font-semibold leading-[1.7] max-w-[520px] mb-6 md:mb-8">
+      O que fica: uma campanha que responde em minutos e ainda sobra tempo pra pensar estratégia todo dia.
     </p>
 
     <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 mb-4">
@@ -299,6 +302,102 @@
     </div>
   </section>
 
+  <!-- PROVA TÉCNICA + VISUAL -->
+  <section id="prova" class="px-4 sm:px-6 md:px-12 py-12 md:py-[100px] bg-surface-overlay">
+    <div class="flex items-center gap-3 mb-10 md:mb-14 reveal">
+      <h2 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.88] text-[clamp(2rem,5vw,6rem)]">
+        A diferença<br>é a <em class="not-italic text-brand-accent">voz.</em>
+      </h2>
+    </div>
+    <p class="text-[0.7rem] tracking-[0.14em] uppercase text-text-tertiary mb-8 reveal">Exemplo ilustrativo — não reflete um candidato ou campanha real</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 reveal">
+      <div class="bg-surface-raised border border-border-subtle rounded-card overflow-hidden">
+        <div class="px-6 md:px-7 py-4 border-b border-border-subtle font-display font-bold text-[0.75rem] tracking-[0.2em] uppercase text-text-tertiary">
+          Prompt genérico
+        </div>
+        <div class="p-6 md:p-8">
+          <p class="text-[0.78rem] text-text-tertiary mb-4">"Escreva um post sobre o problema do saneamento no bairro."</p>
+          <p class="text-[0.9rem] text-text-secondary leading-[1.7]">"O saneamento básico é um direito de todos. Precisamos cobrar melhorias urgentes para garantir qualidade de vida à população. Juntos, vamos exigir mudanças!"</p>
+          <p class="mt-4 text-[0.75rem] text-text-tertiary">Genérico. Poderia ser de qualquer candidato, em qualquer cidade.</p>
+        </div>
+      </div>
+      <div class="bg-surface-raised border-2 border-brand-accent rounded-card overflow-hidden">
+        <div class="px-6 md:px-7 py-4 border-b border-border-subtle font-display font-bold text-[0.75rem] tracking-[0.2em] uppercase text-brand-accent">
+          Escale.ai — com contexto instalado
+        </div>
+        <div class="p-6 md:p-8">
+          <p class="text-[0.78rem] text-text-tertiary mb-4">Mesmo tema, mesma tecla: "saneamento no bairro"</p>
+          <p class="text-[0.9rem] text-text-secondary leading-[1.7]">"Terça passada andei pelo Alto do Cabrito de novo. Rua alagada há 3 anos, e a resposta que ouvi foi sempre a mesma. Não é sobre prometer — já protocolei o pedido de vistoria essa semana. Cobrar isso é o mínimo."</p>
+          <p class="mt-4 text-[0.75rem] text-brand-accent font-semibold">Específico. Tom, referência de território e postura do candidato — herdados do mapeamento.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center reveal">
+      <div>
+        <p class="font-display font-bold text-[0.65rem] tracking-[0.22em] uppercase text-text-tertiary mb-6">Prova visual</p>
+        <h3 class="font-display font-extrabold uppercase tracking-[-0.03em] leading-[1.05] text-[clamp(1.6rem,3.5vw,3rem)] mb-6">
+          Sai do texto direto pro template.
+        </h3>
+        <p class="text-base text-text-secondary leading-[1.8] max-w-[440px]">
+          O texto gerado já entra encaixado no template do Canva — título, legenda e call-to-action no lugar certo. Ninguém monta layout do zero.
+        </p>
+      </div>
+      <div class="mx-auto w-full max-w-[340px] aspect-[4/5] rounded-card overflow-hidden border border-border-default bg-gradient-to-br from-surface-raised to-surface-base flex flex-col justify-between p-6">
+        <div class="flex items-center justify-between">
+          <span class="font-display font-extrabold text-[0.7rem] tracking-[0.14em] uppercase text-brand-accent">Template · Post</span>
+          <span class="text-[0.6rem] uppercase tracking-[0.1em] text-text-tertiary border border-border-default rounded-pill px-2 py-1">Exemplo</span>
+        </div>
+        <div>
+          <p class="font-display font-extrabold uppercase leading-[0.95] text-[clamp(1.6rem,4vw,2.4rem)] text-text-primary mb-3">Saneamento não é<br>promessa.<br><span class="text-brand-accent">É ação.</span></p>
+          <div class="h-px bg-border-default my-4"></div>
+          <p class="text-[0.75rem] text-text-secondary leading-[1.5]">Protocolei o pedido de vistoria essa semana no Alto do Cabrito.</p>
+        </div>
+        <p class="text-[0.65rem] uppercase tracking-[0.1em] text-text-tertiary">@candidato · template gerado automaticamente</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BÔNUS FIGMA -->
+  <section class="px-4 sm:px-6 md:px-12 py-12 md:py-[100px]">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+      <div class="reveal order-2 md:order-1 bg-surface-raised border border-border-subtle rounded-card overflow-hidden">
+        <div class="px-6 md:px-8 py-5 border-b border-border-subtle">
+          <p class="flex items-center gap-2 font-body text-[0.68rem] tracking-[0.16em] uppercase text-brand-accent">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-accent inline-block"></span> Incluso de bônus, sem custo extra
+          </p>
+        </div>
+        <div class="px-6 md:px-8 py-5 border-b border-border-subtle">
+          <p class="font-display font-extrabold text-[1.1rem] md:text-[1.4rem] uppercase tracking-[-0.02em] leading-none mb-1.5">Plugin de Figma</p>
+          <p class="text-[0.75rem] text-text-tertiary">Pra quem já tem designer com workflow no Figma</p>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-start gap-3 px-6 md:px-8 py-4 border-b border-border-subtle">
+            <span class="text-brand-accent flex-shrink-0 mt-0.5">↗</span>
+            <p class="text-[0.85rem] text-text-secondary leading-[1.6]">Texto gerado cai direto no arquivo do Figma — sem copiar e colar entre ferramentas</p>
+          </div>
+          <div class="flex items-start gap-3 px-6 md:px-8 py-4 border-b border-border-subtle">
+            <span class="text-brand-accent flex-shrink-0 mt-0.5">↗</span>
+            <p class="text-[0.85rem] text-text-secondary leading-[1.6]">Não substitui o Canva — é rota alternativa pra quem já não usa outra coisa</p>
+          </div>
+          <div class="flex items-start gap-3 px-6 md:px-8 py-4">
+            <span class="text-brand-accent flex-shrink-0 mt-0.5">↗</span>
+            <p class="text-[0.85rem] text-text-secondary leading-[1.6]">Incluso na Licença Designer e na Licença Completa</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal order-1 md:order-2">
+        <p class="font-display font-bold text-[0.65rem] tracking-[0.22em] uppercase text-text-tertiary mb-8">Bônus</p>
+        <h2 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.88] text-[clamp(2.5rem,5vw,7rem)] mb-8">
+          Já tem designer?<br><em class="not-italic text-brand-accent">Ele fica no Figma.</em>
+        </h2>
+        <p class="text-base text-text-secondary leading-[1.75] max-w-[420px]">
+          Nem toda campanha edita no Canva. Quem já tem workflow montado no Figma não precisa mudar de ferramenta — o texto na voz do candidato cai direto lá.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- ADD-ON -->
   <section class="px-4 sm:px-6 md:px-12 py-12 md:py-[100px] bg-surface-overlay">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
@@ -384,13 +483,13 @@
     <div class="max-w-[820px] reveal">
       <p class="font-display font-bold text-[0.65rem] tracking-[0.22em] uppercase text-text-tertiary mb-6">Quem constrói o Escale.ai</p>
       <h2 class="font-display font-extrabold uppercase tracking-[-0.04em] leading-[0.92] text-[clamp(1.8rem,4.5vw,4rem)] mb-8">
-        A Nebu já viveu<br>esse <em class="not-italic text-brand-accent">gargalo por dentro.</em>
+        A gente já viveu<br>esse <em class="not-italic text-brand-accent">gargalo por dentro.</em>
       </h2>
       <p class="text-base text-text-secondary leading-[1.8] mb-6">
-        O Escale.ai nasce da Nebu, e a Nebu nasce de dentro de campanha de verdade — não de quem observa de fora. Antes de virar sistema, a gente viveu o gargalo: numa campanha presencial de deputado estadual, com time grande (diretor de arte, assistente de artes, dois social medias, uma pessoa dedicada a monitorar concorrência), a resposta a notícia ainda atrasava e o retrabalho entre social e arte comia parte do tempo que devia ir pra estratégia.
+        O Escale.ai nasce da Nebu, e nasce de uma ideia de dentro de campanha de verdade — não de quem observa de fora. Antes de virar sistema, a gente viveu o gargalo: numa campanha presencial de deputado estadual, com time grande (diretor de arte, assistente de artes, dois social medias, uma pessoa dedicada a monitorar concorrência), a resposta a notícia ainda atrasava e o retrabalho entre social e arte comia parte do tempo que devia ir pra estratégia.
       </p>
       <p class="text-base text-text-secondary leading-[1.8]">
-        Time grande não resolve sozinho — resolve sistema. O Escale.ai é o sistema que a gente queria ter tido naquela campanha. Mesmo princípio que orienta tudo que a Nebu constrói: o conhecimento fica no sistema, não preso a uma pessoa — nem no seu time, nem no nosso.
+        Time grande não resolve sozinho — sistema resolve. O Escale.ai é o sistema que a gente queria ter tido naquela campanha. Mesmo princípio que orienta tudo que a Nebu constrói: o conhecimento fica no sistema, não preso a uma pessoa — nem no seu time, nem no nosso.
       </p>
     </div>
   </section>
@@ -405,6 +504,31 @@
         Tudo incluso. Sem surpresa de cobrança no meio da campanha. Sem mensalidade.
       </p>
     </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 reveal">
+      <div class="bg-surface-raised border border-border-subtle rounded-card overflow-hidden">
+        <div class="px-6 md:px-7 py-4 border-b border-border-subtle font-display font-bold text-[0.75rem] tracking-[0.2em] uppercase text-text-tertiary">Licença Designer</div>
+        <div class="p-6 md:p-8">
+          <p class="font-display font-extrabold text-[2.2rem] md:text-[2.8rem] text-text-primary leading-none mb-2 tracking-[-0.02em]">R$ 1.500</p>
+          <p class="text-[0.8rem] text-text-secondary leading-[1.6]">Plugin de Figma, sem geração de texto. Pra quem já tem redator e só precisa do texto encaixado no design.</p>
+        </div>
+      </div>
+      <div class="bg-surface-raised border border-border-subtle rounded-card overflow-hidden">
+        <div class="px-6 md:px-7 py-4 border-b border-border-subtle font-display font-bold text-[0.75rem] tracking-[0.2em] uppercase text-text-tertiary">Licença Redator</div>
+        <div class="p-6 md:p-8">
+          <p class="font-display font-extrabold text-[2.2rem] md:text-[2.8rem] text-text-primary leading-none mb-2 tracking-[-0.02em]">R$ 4.000</p>
+          <p class="text-[0.8rem] text-text-secondary leading-[1.6]">Geração de texto na voz do candidato, sem plugin de Figma. Pra quem já tem designer e workflow de arte.</p>
+        </div>
+      </div>
+      <div class="bg-surface-raised border-2 border-brand-accent rounded-card overflow-hidden">
+        <div class="px-6 md:px-7 py-4 border-b border-border-subtle font-display font-bold text-[0.75rem] tracking-[0.2em] uppercase text-brand-accent">Licença Completa</div>
+        <div class="p-6 md:p-8">
+          <p class="font-display font-extrabold text-[2.2rem] md:text-[2.8rem] text-text-primary leading-none mb-2 tracking-[-0.02em]">R$ 7.000</p>
+          <p class="text-[0.8rem] text-text-secondary leading-[1.6]">Redator + Designer, fim a fim, com suporte incluso. Pra campanha que não tem nenhum dos dois montado.</p>
+        </div>
+      </div>
+    </div>
+
     <div id="cta" class="grid grid-cols-1 md:grid-cols-2 bg-surface-raised border border-border-subtle rounded-card overflow-hidden reveal">
       <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-border-subtle">
         <p class="font-display font-extrabold text-[1.6rem] md:text-[2.2rem] uppercase leading-none mb-6">Escale.ai™</p>
@@ -484,7 +608,7 @@
             <span class="faq-icon text-[1.5rem] font-light text-brand-accent transition-transform duration-[350ms] flex-shrink-0">+</span>
           </button>
           <div class="faq-a text-[0.85rem] md:text-[0.93rem] text-text-secondary leading-[1.75]">
-            Varia pelo que sua campanha precisa: Licença Redator, Licença Designer (com plugin de Figma) ou Licença Completa, com suporte incluso. Existe também opção mensal pra quem produz em volume alto. A Nebu te mostra os valores exatos depois de te mostrar o sistema funcionando com um brief real do seu candidato — sem essa demonstração, número sozinho não diz nada sobre o que você realmente recebe.
+            Licença Designer (plugin de Figma) R$ 1.500. Licença Redator (geração de texto) R$ 4.000. Licença Completa (redator + designer, com suporte) R$ 7.000. Investimento único, sem mensalidade. Existe também opção mensal pra quem produz em volume alto — a Nebu apresenta esse valor depois de te mostrar o sistema funcionando com um brief real do seu candidato.
           </div>
         </div>
         <div class="faq-item border-t border-border-subtle reveal">
